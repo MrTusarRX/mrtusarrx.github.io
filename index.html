@@ -137,18 +137,16 @@
       <div class="p-shimmer"></div>
     </div>
 
-  <script>
+ <script>
 async function loadImage() {
-    try {
-        const res = await fetch("https://tkserver.serv00.net/bot/api.php");
-        const data = await res.json();
-        if (data.status && data.base64) {
-            document.getElementById("pImg").src = data.base64;
-        } else {
-            console.log("Failed to load image from API");
-        }
-    } 
+    const res = await fetch("https://tkserver.serv00.net/bot/api.php");
+    const data = await res.json();
+    if (data.status && data.base64) {
+        document.getElementById("pImg").src = data.base64;
+    } else {
+        console.log("Failed to load image from API");
     }
+}
 loadImage();
 </script>
 
