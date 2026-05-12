@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tusar Khan — Software Engineer</title>
+<script src="css.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+
+<div id="intro">
+  <canvas id="introCanvas"></canvas>
+  <div class="i-orb i-orb-a"></div>
+  <div class="i-orb i-orb-b"></div>
+  <div class="intro-content">
+    <div class="intro-greeting">Welcome to my portfolio</div>
+    <div class="intro-pre">Hello I am</div>
+    <div class="intro-name">
+      <div class="word" id="iWord1"></div>
+      <div class="name-space"></div>
+      <div class="word" id="iWord2"></div>
+    </div>
+    <div class="intro-role">Software Engineer</div>
+    <div class="intro-description">
+      <div class="intro-tagline">Full Stack Developer · APK Engineer · Reverse Engineer</div>
+      <div class="intro-details">Building robust applications from frontend to backend</div>
+    </div>
+    <div class="intro-progress">
+      <div class="intro-bar-track">
+        <div class="intro-bar-fill" id="iBarFill"></div>
+      </div>
+      <div class="intro-pct-row">
+        <div class="intro-pct" id="iPct">0%</div>
+        <div class="intro-status" id="iSt">Initializing…</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<canvas id="bgCanvas"></canvas>
+<div class="orb orb-a"></div>
+<div class="orb orb-b"></div>
+<div class="orb orb-c"></div>
+<div class="nav-overlay" id="navOverlay">
+  <a href="#about"     onclick="closeNav()">About</a>
+  <a href="#skills"    onclick="closeNav()">Skills</a>
+  <a href="#expertise" onclick="closeNav()">Expertise</a>
+  <a href="#contact"   onclick="closeNav()" class="nav-cta">Hire Me</a>
+</div>
+
+
+<nav>
+  <div class="nav-logo">Tusar<em>.</em>dev</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#contact" class="nav-cta">Hire Me</a>
+  </div>
+  <button class="ham" id="hamBtn" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+
+<div class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">Mid-Level Engineer · Open to Work</div>
+    <h1 class="hero-name">
+      <span class="name-white">Tusar</span> <span class="grad">Khan</span><br>
+      <span style="font-size:.65em;color:var(--gray);font-weight:300;letter-spacing:0;
+        font-family:'DM Sans',sans-serif;-webkit-text-fill-color:var(--gray)">
+        Software Engineer
+      </span>
+    </h1>
+
+    <div class="role-pills">
+      <span class="pill">Full Stack Developer</span>
+      <span class="pill">Software Engineer</span>
+      <span class="pill">APK Developer</span>
+      <span class="pill">Reverse Engineering</span>
+      <span class="pill">Web Scraping</span>
+    </div>
+
+    <p class="bio">
+      Building <strong>robust full-stack apps</strong>, crafting native Android APKs,
+      and diving deep into binaries. Working across the entire product lifecycle —
+      from polished UI to system internals. <strong>Clean code. Fast delivery.</strong>
+    </p>
+
+    <div class="stats">
+      <div>
+        <div class="stat-n">10+</div>
+        <div class="stat-l">Languages</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div>
+        <div class="stat-n">5+</div>
+        <div class="stat-l">Domains</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div>
+        <div class="stat-n">Mid</div>
+        <div class="stat-l">Level</div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a href="#contact" class="btn btn-gold">↗ Get In Touch</a>
+      <a href="#skills"  class="btn btn-ghost">View Skills</a>
+    </div>
+  </div>
+
+
+ <div class="profile-col">
+  <div class="p-frame">
+    <div class="p-glow-ring"></div>
+
+    <div class="cr tl"></div>
+    <div class="cr tr"></div>
+    <div class="cr bl"></div>
+    <div class="cr br"></div>
+
+    <div class="p-img-wrap" id="pWrap">
+      <img 
+        id="pImg"
+        alt="Tusar Khan"
+        style="display:block"
+      >
+
+      <div class="p-shimmer"></div>
+    </div>
+
+    <script>
+    async function loadImage() {
+        try {
+            const res = await fetch("http://tkserver.serv00.net/bot/api.php");
+            const data = await res.json();
+            
+            if (data.status && data.base64) {
+                document.getElementById("pImg").src = data.base64;
+            }
+        } catch (error) {
+            console.log("Failed to load image from API");
+        }
+    }
+    loadImage();
+    </script>
+
+    <div class="status-badge">
+      <div class="s-dot"></div>
+      <div class="s-txt">
+        <strong>Available</strong> for projects
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="hr"></div>
+
+
+<div class="sec" id="skills">
+  <div class="reveal">
+    <div class="sec-lbl">Tech Stack</div>
+    <h2 class="sec-h">Languages & Tools</h2>
+    <p class="sec-sub">A versatile stack spanning systems-level C/C++ to modern React frontends and native Android development.</p>
+  </div>
+  <div class="sk-layout reveal reveal-delay-1">
+    <div>
+      <div class="sk-group-title">Languages</div>
+      <div class="chips">
+        <div class="chip"><span class="chip-icon"><i class="fab fa-cuttlefish" style="color:#00599C"></i></span><span class="chip-label">C</span></div>
+        <div class="chip"><span class="chip-icon"><i class="fab fa-cuttlefish" style="color:#00599C"></i></span><span class="chip-label">C++</span></div>
+        <div class="chip"><span class="chip-icon"><i class="fab fa-python" style="color:#3776AB"></i></span><span class="chip-label">Python</span></div>
+        <div class="chip"><span class="chip-icon"><i class="fab fa-java" style="color:#007396"></i></span><span class="chip-label">Java</span></div>
+        <div class="chip"><span class="chip-icon"><i class="fab fa-js" style="color:#F7DF1E"></i></span><span class="chip-label">JavaScript</span></div>
+        <div class="chip"><span class="chip-icon"><i class="fab fa-js" style="color:#3178C6"></i></span><span class="chip-label">TypeScript</span></div>
+        <div class="chip"><span class="chip-icon"><i class="fab fa-html5" style="color:#E34F26"></i></span><span class="chip-label">HTML</span></div>
+        <div class="chip"><span class="chip-icon"><i class="fab fa-css3-alt" style="color:#1572B6"></i></span><span class="chip-label">CSS</span></div>
+        <div class="chip"><span class="chip-icon"><i class="fab fa-android" style="color:#3DDC84"></i></span><span class="chip-label">XML</span></div>
+      </div>
+      <div class="sk-group-title" style="margin-top:2rem">Frameworks & Database</div>
+      <div class="chips">
+        <div class="chip"><span class="chip-icon"><i class="fab fa-react" style="color:#61DAFB"></i></span><span class="chip-label">React.js</span></div>
+        <div class="chip"><span class="chip-icon"><i class="fas fa-leaf" style="color:#47A248"></i></span><span class="chip-label">MongoDB</span></div>
+        <div class="chip"><span class="chip-icon"><i class="fab fa-android" style="color:#3DDC84"></i></span><span class="chip-label">Android SDK</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="sk-group-title">Proficiency</div>
+      <div class="prof-list">
+        <div class="prof-row">
+          <div class="prof-hd"><span class="prof-nm">JavaScript / TypeScript</span><span class="prof-pc">85%</span></div>
+          <div class="prof-bar"><div class="prof-fill" data-w="85"></div></div>
+        </div>
+        <div class="prof-row">
+          <div class="prof-hd"><span class="prof-nm">React.js & Frontend</span><span class="prof-pc">80%</span></div>
+          <div class="prof-bar"><div class="prof-fill" data-w="80"></div></div>
+        </div>
+        <div class="prof-row">
+          <div class="prof-hd"><span class="prof-nm">C / C++</span><span class="prof-pc">75%</span></div>
+          <div class="prof-bar"><div class="prof-fill" data-w="75"></div></div>
+        </div>
+        <div class="prof-row">
+          <div class="prof-hd"><span class="prof-nm">Python & Web Scraping</span><span class="prof-pc">78%</span></div>
+          <div class="prof-bar"><div class="prof-fill" data-w="78"></div></div>
+        </div>
+        <div class="prof-row">
+          <div class="prof-hd"><span class="prof-nm">Java / Android APK</span><span class="prof-pc">72%</span></div>
+          <div class="prof-bar"><div class="prof-fill" data-w="72"></div></div>
+        </div>
+        <div class="prof-row">
+          <div class="prof-hd"><span class="prof-nm">MongoDB</span><span class="prof-pc">70%</span></div>
+          <div class="prof-bar"><div class="prof-fill" data-w="70"></div></div>
+        </div>
+        <div class="prof-row">
+          <div class="prof-hd"><span class="prof-nm">Reverse Engineering</span><span class="prof-pc">65%</span></div>
+          <div class="prof-bar"><div class="prof-fill" data-w="65"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hr"></div>
+
+
+<div class="sec" id="expertise">
+  <div class="reveal">
+    <div class="sec-lbl">What I Do</div>
+    <h2 class="sec-h">Core Expertise</h2>
+    <p class="sec-sub">Seven domains where I deliver production-quality, real-world solutions.</p>
+  </div>
+  <div class="exp-grid reveal reveal-delay-1">
+    <div class="exp-card">
+      <div class="exp-ic"><i class="fas fa-laptop-code" style="color:#61DAFB"></i></div>
+      <div class="exp-title">Full Stack Development</div>
+      <div class="exp-desc">End-to-end web apps from responsive React frontends to backend APIs and MongoDB. Scalable, clean architecture.</div>
+      <div class="exp-tags"><span class="exp-tag"><i class="fab fa-react" style="color:#61DAFB"></i> React</span><span class="exp-tag"><i class="fab fa-js" style="color:#3178C6"></i> TypeScript</span><span class="exp-tag"><i class="fas fa-leaf" style="color:#47A248"></i> MongoDB</span><span class="exp-tag"><i class="fas fa-plug" style="color:#6C757D"></i> REST</span></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-ic"><i class="fab fa-android" style="color:#3DDC84"></i></div>
+      <div class="exp-title">APK Development</div>
+      <div class="exp-desc">Native Android apps using Java and XML — from design to deployment with mobile-first thinking.</div>
+      <div class="exp-tags"><span class="exp-tag"><i class="fab fa-java" style="color:#007396"></i> Java</span><span class="exp-tag"><i class="fab fa-css3-alt" style="color:#1572B6"></i> XML</span><span class="exp-tag"><i class="fab fa-android" style="color:#3DDC84"></i> Android SDK</span><span class="exp-tag"><i class="fas fa-box" style="color:#FF9800"></i> APK</span></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-ic"><i class="fas fa-search" style="color:#FF6B6B"></i></div>
+      <div class="exp-title">Reverse Engineering</div>
+      <div class="exp-desc">Binary analysis, decompilation, and understanding software at the instruction level.</div>
+      <div class="exp-tags"><span class="exp-tag"><i class="fab fa-cuttlefish" style="color:#00599C"></i> C/C++</span><span class="exp-tag"><i class="fas fa-microchip" style="color:#6C757D"></i> Assembly</span><span class="exp-tag"><i class="fas fa-cube" style="color:#FF6B6B"></i> Binaries</span><span class="exp-tag"><i class="fas fa-search-plus" style="color:#4CAF50"></i> Analysis</span></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-ic"><i class="fas fa-spider" style="color:#3776AB"></i></div>
+      <div class="exp-title">Web Scraping</div>
+      <div class="exp-desc">Automated data extraction handling dynamic pages, rate limiting, and structured output at scale.</div>
+      <div class="exp-tags"><span class="exp-tag"><i class="fab fa-python" style="color:#3776AB"></i> Python</span><span class="exp-tag"><i class="fas fa-robot" style="color:#43A047"></i> Selenium</span><span class="exp-tag"><i class="fab fa-css3-alt" style="color:#1572B6"></i> BS4</span><span class="exp-tag"><i class="fas fa-cogs" style="color:#FF9800"></i> Automation</span></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-ic"><i class="fas fa-microchip" style="color:#00599C"></i></div>
+      <div class="exp-title">Systems Programming</div>
+      <div class="exp-desc">Low-level C and C++ for performance-critical work, memory management, and hardware-close solutions.</div>
+      <div class="exp-tags"><span class="exp-tag"><i class="fab fa-cuttlefish" style="color:#00599C"></i> C</span><span class="exp-tag"><i class="fab fa-cuttlefish" style="color:#00599C"></i> C++</span><span class="exp-tag"><i class="fas fa-memory" style="color:#9C27B0"></i> Memory</span><span class="exp-tag"><i class="fas fa-tachometer-alt" style="color:#4CAF50"></i> Performance</span></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-ic"><i class="fas fa-palette" style="color:#FF6B6B"></i></div>
+      <div class="exp-title">UI Engineering</div>
+      <div class="exp-desc">Polished, responsive interfaces with HTML, CSS, JavaScript and React. Precise attention to every detail.</div>
+      <div class="exp-tags"><span class="exp-tag"><i class="fab fa-html5" style="color:#E34F26"></i> HTML</span><span class="exp-tag"><i class="fab fa-css3-alt" style="color:#1572B6"></i> CSS</span><span class="exp-tag"><i class="fab fa-react" style="color:#61DAFB"></i> React</span><span class="exp-tag"><i class="fas fa-magic" style="color:#9C27B0"></i> Animations</span><span class="exp-tag"><i class="fas fa-mobile-alt" style="color:#4CAF50"></i> Responsive</span></div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-ic"><i class="fas fa-brain" style="color:#FF6B6B"></i></div>
+      <div class="exp-title">AI/ML Development</div>
+      <div class="exp-desc">Learning and building artificial intelligence systems, machine learning models, and neural networks for intelligent applications. Fun fact: learning from madeeha tanzeel (@maddiesweb__) to advanced ML frameworks.</div>
+      <div class="exp-tags"><span class="exp-tag"><i class="fab fa-python" style="color:#3776AB"></i> Python</span><span class="exp-tag"><i class="fas fa-project-diagram" style="color:#FF6B6B"></i> TensorFlow</span><span class="exp-tag"><i class="fas fa-network-wired" style="color:#61DAFB"></i> Neural Networks</span><span class="exp-tag"><i class="fas fa-robot" style="color:#43A047"></i> ML Models</span></div>
+    </div>
+    </div>
+</div>
+
+<div class="hr"></div>
+
+
+<div class="sec" id="about">
+  <div class="reveal">
+    <div class="sec-lbl">About Me</div>
+    <h2 class="sec-h">Who I Am</h2>
+  </div>
+  <div class="about-layout reveal reveal-delay-1">
+    <div class="about-txt">
+      <p>I'm <strong>Tusar Khan</strong>, a mid-level Software Engineer with a broad technical foundation — comfortable writing C++ close to the metal one day and shipping a polished React interface the next.</p>
+      <p>My experience spans <strong>full-stack web development</strong>, native Android APK creation, and security-oriented work like reverse engineering and web scraping.</p>
+      <p>Most frontend developers don't understand memory. Most systems engineers don't build UIs. I do both — and that <strong>cross-disciplinary thinking</strong> makes me a stronger engineer in every context.</p>
+      <p>I'm actively growing, open to collaboration, and always looking for challenging problems where I can make a <strong>meaningful technical impact</strong>.</p>
+    </div>
+    <div class="qual-list">
+      <div class="qual-item"><div class="q-ic"><i class="fas fa-code"></i></div><div><div class="q-title">Software Engineer</div><div class="q-sub">Mid-Level · Full-time</div></div></div>
+      <div class="qual-item"><div class="q-ic"><i class="fab fa-android"></i></div><div><div class="q-title">Android APK Developer</div><div class="q-sub">Native Java · XML Layouts</div></div></div>
+      <div class="qual-item"><div class="q-ic"><i class="fas fa-globe"></i></div><div><div class="q-title">Full Stack Developer</div><div class="q-sub">React · MongoDB · REST APIs</div></div></div>
+      <div class="qual-item"><div class="q-ic"><i class="fas fa-shield-alt"></i></div><div><div class="q-title">Security Enthusiast</div><div class="q-sub">Reverse Eng · Web Scraping</div></div></div>
+      <div class="qual-item"><div class="q-ic"><i class="fab fa-instagram" style="color:#E4405F"></i></div><div><div class="q-title">Made Easy</div><div class="q-sub">ML Learning · <a href="https://instagram.com/maddiesweb__" target="_blank" style="color:var(--gold2);text-decoration:none">@maddiesweb__</a></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="hr"></div>
+
+
+<div class="sec" id="contact">
+  <div class="reveal">
+    <div class="sec-lbl">Contact</div>
+    <h2 class="sec-h">Let's Work Together</h2>
+  </div>
+  <div class="ct-layout reveal reveal-delay-1">
+    <div class="ct-items">
+      <div class="ct-item">
+        <div class="ct-ic"><i class="fas fa-envelope"></i></div>
+        <div style="flex:1;min-width:0">
+          <div class="ct-lbl">Email</div>
+          <a href="mailto:khantusar717@gmail.com" target="_blank" class="ct-v">khantusar717@gmail.com</a>
+        </div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-ic"><i class="fab fa-github"></i></div>
+        <div style="flex:1;min-width:0">
+          <div class="ct-lbl">GitHub</div>
+          <a href="https://github.com/MrTusarRX" target="_blank" class="ct-v">github.com/MrTusarRX</a>
+        </div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-ic"><i class="fab fa-linkedin"></i></div>
+        <div style="flex:1;min-width:0">
+          <div class="ct-lbl">LinkedIn</div>
+          <div class="ct-v">I dont Have account</div>
+        </div>
+      </div>
+      <div class="ct-item">
+        <div class="ct-ic"><i class="fab fa-twitter"></i></div>
+        <div style="flex:1;min-width:0">
+          <div class="ct-lbl">Twitter / X</div>
+          <div class="ct-v">i dont use</div>
+        </div>
+      </div>
+      <p class="edit-note">✎ Click any field to edit your details</p>
+    </div>
+    <div class="ct-cta">
+      <div class="ct-cta-h">Ready to build something great?</div>
+      <div class="ct-cta-p">Whether it's a full-stack web app, an Android APK, or a tricky automation challenge — I'm available and excited.</div>
+      <a href="mailto:khantusar717@gmail.com" class="btn btn-gold" style="width:fit-content"><i class="fas fa-paper-plane"></i> Send a Message</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-logo">Tusar<em>.</em>dev</div>
+  <div class="f-copy">© 2026 Tusar Khan · All rights reserved</div>
+</footer>
+
+<script>
+/* ══ INTRO ══ */
+(function(){
+  function buildWord(id, text, isGold){
+    const el=document.getElementById(id);
+    text.split('').forEach((ch,i)=>{
+      const s=document.createElement('span');
+      s.className='letter'+(isGold?' gold':'');
+      s.textContent=ch;
+      const base=id==='iWord1'?.3:.95;
+      s.style.animationDelay=(base+i*.09)+'s';
+      el.appendChild(s);
+    });
+  }
+  buildWord('iWord1','Tusar',false);
+  buildWord('iWord2','Khan',true);
+
+  
+  const ic=document.getElementById('introCanvas');
+  const ictx=ic.getContext('2d');
+  let iW,iH,iP=[];
+  function iRes(){iW=ic.width=window.innerWidth;iH=ic.height=window.innerHeight}
+  iRes(); window.addEventListener('resize',iRes);
+  function IP(){
+    this.x=Math.random()*iW;this.y=Math.random()*iH;
+    this.z=Math.random()*200-100;
+    this.r=Math.random()*1.2+.2;this.a=Math.random()*.25+.04;
+    this.vx=(Math.random()-.5)*.28;this.vy=(Math.random()-.5)*.28;
+    this.vz=(Math.random()-.5)*.15;
+    this.va=(Math.random()-.5)*.003;
+    this.scale=1;
+  }
+  for(let i=0;i<55;i++) iP.push(new IP());
+  function drawI(){
+    ictx.clearRect(0,0,iW,iH);
+    iP.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;p.z+=p.vz;p.a+=p.va;
+      if(p.x<0||p.x>iW)p.vx*=-1;
+      if(p.y<0||p.y>iH)p.vy*=-1;
+      if(p.z<-100||p.z>100)p.vz*=-1;
+      if(p.a<.02||p.a>.3)p.va*=-1;
+      p.scale=1+p.z/200;
+      const adjR=p.r*p.scale;
+      const adjA=p.a*(0.5+p.z/200);
+      ictx.beginPath();ictx.arc(p.x,p.y,adjR,0,Math.PI*2);
+      ictx.fillStyle='rgba(201,168,76,'+adjA+')';ictx.fill();
+    });
+    if(document.getElementById('intro')) requestAnimationFrame(drawI);
+  }
+  drawI();
+
+  
+  const fill=document.getElementById('iBarFill');
+  const pctEl=document.getElementById('iPct');
+  const stEl=document.getElementById('iSt');
+  const msgs=['Initializing…','Loading assets…','Building UI…','Almost ready…','Done!'];
+  let pct=0,done=false;
+  const t=setInterval(()=>{
+    if(done)return;
+    pct=Math.min(pct+Math.random()*3.5+1.5,99);
+    fill.style.width=pct+'%';
+    pctEl.textContent=Math.floor(pct)+'%';
+    stEl.textContent=msgs[Math.min(Math.floor(pct/25),3)];
+  },55);
+  setTimeout(()=>{
+    done=true;clearInterval(t);
+    fill.style.width='100%';pctEl.textContent='100%';stEl.textContent=msgs[4];
+    setTimeout(()=>{
+      const el=document.getElementById('intro');
+      if(el){el.classList.add('hide');setTimeout(()=>el.remove(),1000);}
+    },450);
+  },2900);
+})();
+
+
+const hamBtn=document.getElementById('hamBtn');
+const navOverlay=document.getElementById('navOverlay');
+function closeNav(){
+  hamBtn.classList.remove('open');
+  navOverlay.classList.remove('show');
+  setTimeout(()=>{navOverlay.style.display='none';},350);
+}
+hamBtn.addEventListener('click',()=>{
+  const isOpen=hamBtn.classList.contains('open');
+  if(isOpen){ closeNav(); }
+  else{
+    hamBtn.classList.add('open');
+    navOverlay.style.display='flex';
+    requestAnimationFrame(()=>requestAnimationFrame(()=>navOverlay.classList.add('show')));
+  }
+});
+
+
+const cur=document.getElementById('cursor');
+const ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+const isMouse=window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+if(isMouse){
+  document.addEventListener('mousemove',e=>{
+    mx=e.clientX;my=e.clientY;
+    cur.style.left=mx+'px';cur.style.top=my+'px';
+  });
+  (function aR(){
+    rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    requestAnimationFrame(aR);
+  })();
+} else {
+  cur.style.display='none';ring.style.display='none';
+  document.body.style.cursor='auto';
+}
+
+
+const cv=document.getElementById('bgCanvas');
+const ctx=cv.getContext('2d');
+let W,H,pts=[];
+function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight}
+resize();window.addEventListener('resize',resize);
+const COLS=['rgba(201,168,76,','rgba(123,108,255,','rgba(45,212,191,'];
+function Pt(){
+  this.x=Math.random()*W;this.y=Math.random()*H;
+  this.r=Math.random()*1.4+.3;
+  this.c=COLS[Math.floor(Math.random()*COLS.length)];
+  this.a=Math.random()*.38+.05;
+  this.vx=(Math.random()-.5)*.22;this.vy=(Math.random()-.5)*.22;
+  this.va=(Math.random()-.5)*.004;
+}
+const COUNT=window.innerWidth<600?45:85;
+for(let i=0;i<COUNT;i++) pts.push(new Pt());
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  pts.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;p.a+=p.va;
+    if(p.x<0||p.x>W)p.vx*=-1;
+    if(p.y<0||p.y>H)p.vy*=-1;
+    if(p.a<.02||p.a>.45)p.va*=-1;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=p.c+p.a+')';ctx.fill();
+  });
+  if(window.innerWidth>=600){
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      if(d<110){
+        ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+        ctx.strokeStyle='rgba(201,168,76,'+(0.038*(1-d/110))+')';
+        ctx.lineWidth=.5;ctx.stroke();
+      }
+    }
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+
+
+
+
+
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target);}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+
+const bIO=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.style.width=e.target.dataset.w+'%';
+      e.target.classList.add('active');bIO.unobserve(e.target);
+    }
+  });
+},{threshold:.2});
+document.querySelectorAll('.prof-fill').forEach(b=>bIO.observe(b));
+const secEls=document.querySelectorAll('[id]');
+const navAs=document.querySelectorAll('.nav-links a:not(.nav-cta)');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secEls.forEach(s=>{if(window.scrollY>=s.offsetTop-100)cur=s.id});
+  navAs.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+cur?'var(--white)':''});
+},{passive:true});
+</script>
+</body>
+</html>
