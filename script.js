@@ -103,15 +103,8 @@
   }, 2900);
 })();
 async function loadImage() {
-  try {
-    const _0x20458b = await fetch("");
-    const _0x3cef87 = await _0x20458b.json();
-    if (_0x3cef87.status && _0x3cef87.base64) {
-      document.getElementById("pImg").src = _0x3cef87.base64;
-    }
-  } catch (_0x589800) {
-    console.log("Image load deferred");
-  }
+  document.getElementById("pImg").src =
+    "https://avatars.githubusercontent.com/u/114900895?v=4";
 }
 loadImage();
 const cur = document.getElementById("cursor");
